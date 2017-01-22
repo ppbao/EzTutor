@@ -1,0 +1,140 @@
+package au.com.unisharing.eztutor.utils;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.util.Collection;
+import java.util.Map;
+
+/**
+ * Class Name   : CommonUtils
+ * Author       : Bruce.liu
+ * Created Date :
+ * Description  : common utils to cope with String, files
+ */
+public class CommonUtils {
+    public static final String EMPTY = "";
+
+    private CommonUtils() {
+
+    }
+
+    public static boolean isTrimEmpty(String text) {
+        return text == null || text.trim().length() == 0;
+    }
+
+    public static boolean isEmpty(CharSequence charSequence) {
+        return charSequence == null || charSequence.length() == 0;
+    }
+
+    public static boolean isEmpty(Collection<?> collection) {
+        return collection == null || collection.size() == 0;
+    }
+
+    public static boolean isEmpty(Map<?, ?> map) {
+        return map == null || map.size() == 0;
+    }
+
+    public static boolean isEmpty(Object[] array) {
+        return array == null || array.length == 0;
+    }
+
+    public static boolean isNotEmpty(CharSequence charSequence) {
+        return !isEmpty(charSequence);
+    }
+
+    public static boolean isNotEmpty(Collection<?> collection) {
+        return !isEmpty(collection);
+    }
+
+    public static boolean isNotEmpty(Map<?, ?> map) {
+        return !isEmpty(map);
+    }
+
+    public static boolean isNotEmpty(Object[] array) {
+        return !isEmpty(array);
+    }
+
+    public static void cleanDirectory(File... dirs) {
+        if (dirs == null) {
+            return;
+        }
+        for (File dir : dirs) {
+            try {
+                FileUtils.cleanDirectory(dir);
+            } catch (Exception exception) {
+            }
+        }
+    }
+
+    public static void cleanAndDeleteDirectory(File... dirs) {
+        if (dirs == null) {
+            return;
+        }
+        for (File dir : dirs) {
+            try {
+                FileUtils.cleanDirectory(dir);
+            } catch (Exception exception) {
+            }
+            try {
+                dir.delete();
+            } catch (Exception exception) {
+
+            }
+
+        }
+    }
+
+    public static boolean isAppInstalled(Context context, String packageName) {
+
+        try {
+            if (context != null) {
+                final PackageManager pm = context.getPackageManager();
+                pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+                return true;
+            }
+        } catch (PackageManager.NameNotFoundException ex) {
+
+        }
+        return false;
+    }
+
+    public static boolean hasEnoughFreeSpace(Context context) {
+        final int mbThreshold = 300;
+        if (context != null) {
+            File dir = context.getExternalFilesDir(null);
+            if (dir != null && dir.exists()) {
+                final long usableMb = dir.getUsableSpace() / (1024 * 1024);
+                return usableMb >= mbThreshold;
+            }
+        }
+        return false;
+    }
+
+    public static String getFullDeviceName(String seperator) {
+        if (seperator == null) {
+            seperator = "-";
+        }
+        final String manufacturer = Build.MANUFACTURER;
+        final String model = Build.MODEL;
+        final String os = Build.VERSION.RELEASE;
+        if (model.startsWith(manufacturer)) {
+            return model + seperator + os;
+        } else {
+            return manufacturer + seperator + model + seperator + os;
+        }
+    }
+
+    public static float px2Dp(final Context context, final float px) {
+        return px / context.getResources().getDisplayMetrics().density;
+    }
+
+    public static float dp2Px(final Context context, final float dp) {
+        return dp * context.getResources().getDisplayMetrics().density;
+    }
+}
