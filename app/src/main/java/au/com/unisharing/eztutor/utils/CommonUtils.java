@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.view.ViewConfiguration;
 
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Map;
+
+import au.com.unisharing.eztutor.activity.BaseActivity;
 
 /**
  * Class Name   : CommonUtils
@@ -137,4 +141,19 @@ public class CommonUtils {
     public static float dp2Px(final Context context, final float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
     }
+
+    public static void setAtionOverflowMenuShown(Context context) {
+        ViewConfiguration config = ViewConfiguration.get(context);
+       try{
+        Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+        if (menuKeyField != null){
+            menuKeyField.setAccessible(true);
+            menuKeyField.setBoolean(config,false);
+        }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+    }
+
 }
