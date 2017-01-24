@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="22dp"
+    android:paddingRight="22dp">
+
+    <LinearLayout android:id="@+id/material_drawer_item_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|start"
+            android:orientation="vertical">
+            <TextView android:id="@+id/material_drawer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|start"
+                android:lines="1"
+                android:singleLine="true"
+                android:textColor="@color/black_70"
+                android:textSize="16sp"
+                tools:text="Some drawer text"
+                />
+            <TextView android:id="@+id/material_drawer_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|start"
+                android:lines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/material_drawer_item_primary_description"
+                tools:text="some drawer text"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/material_drawer_badge_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingEnd="0dp"
+            android:paddingRight="0dp"
+            android:paddingLeft="@dimen/material_drawer_padding"
+            android:paddingStart="@dimen/material_drawer_padding">
+
+            <TextView android:id="@+id/material_drawer_badge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lines="1"
+                android:minWidth="20dp"
+                android:paddingLeft="1dp"
+                android:singleLine="true"
+                android:textSize="@dimen/material_drawer_item_primary_text"
+                tools:text="99"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView android:id="@+id/material_drawer_primary_divider"
+        android:layout_below="@id/material_drawer_item_wrapper"
+        style="@style/DividerHorizontal"/>
+
+</RelativeLayout>
