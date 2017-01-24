@@ -48,7 +48,7 @@
         android:layout_marginRight="10dp"
         android:src ="@drawable/ic_action_news"/>
 
-    <TextView android:id="@+id/iv_show_resumables"
+    <ImageView android:id="@+id/iv_show_resumables"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_toRightOf="@+id/iv_notification"
@@ -124,7 +124,7 @@
                     style="@style/ImageViewBase"/>
 
 
-                <LinearLayout android:id="@+id/v_record_local"
+                <LinearLayout android:id="@+id/v_upload_local"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
