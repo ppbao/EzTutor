@@ -1,5 +1,8 @@
 package au.com.unisharing.eztutor.activity;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity
     private ActionBarCompat actionBarCompat;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         CommonUtils.setAtionOverflowMenuShown(this);
@@ -131,7 +134,64 @@ public abstract class BaseActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        manager.register(this);
+        manager.register(this); //todo add later
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data); //todo add late
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();// TODO: add later
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop(); //todo add later
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getSupportFragmentManager().removeOnBackStackChangedListener(this);
+        removeAllCallbacksANdMessages();
+    }
+
+    private void removeAllCallbacksANdMessages() {
+        if (handler != null){
+            handler.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public void setAuthenticationCallBack(AuthentificatioinCallBack authentificationCallback){
+        this.authentificatioinCallBack = authentificationCallback;
+    }
+
+    public class LogoutReceiver  extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
+    }
+
+    public Fragment getContentFragment(){
+        return contentFragment;
+    }
+
+    public ActionBarCompat getActionBarCompat(){
+        return actionBarCompat;
+    }
+
+    public abstract void resolveIntent(Intent intent);
+    public static void resolveIntent(Fragment fragment, Intent intent){
+        if (CommonUtils.isFragmentAlive(fragment)){
+            Activity activity = fragment.getActivity();
+            if (activity != null && activity instanceof BaseActivity){
+                ((BaseActivity)activity).resolveIntent(intent);
+            }
+        }
     }
 }

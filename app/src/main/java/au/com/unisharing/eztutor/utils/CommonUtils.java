@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.view.ViewConfiguration;
 
 import org.apache.commons.io.FileUtils;
@@ -156,4 +157,7 @@ public class CommonUtils {
 
     }
 
+    public static boolean isFragmentAlive(Fragment fragment) {
+        return fragment!= null && fragment.isAdded() && fragment.getActivity() != null;
+    }
 }

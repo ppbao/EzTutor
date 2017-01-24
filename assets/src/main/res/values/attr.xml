@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="heightRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckButton">
+        <attr name="sharedPreferencesKey" format="reference" />
+        <attr name="sharedPreferencesName" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AlphaImageView">
+        <attr name="alpha" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearableEditText">
+        <attr name="clearIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FloatableLayout">
+        <attr name="horizontalSpacing" format="reference" />
+        <attr name="verticalSpacing" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="IconTextView">
+        <attr name="iconAlpha" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="PillTextView">
+        <attr name="stroke_color" format="reference" />
+        <attr name="stroke_width" format="reference" />
+        <attr name="pill_background_color" format="reference" />
+        <attr name="additional_padding" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_top_left" format="boolean" />
+        <attr name="corner_top_right" format="boolean" />
+        <attr name="corner_bottom_left" format="boolean" />
+        <attr name="corner_bottom_right" format="boolean" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="mutate_background" format="boolean" />
+        <attr name="oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsTabSelectedTextColor" format="color" />
+        <attr name="pstsTabUnselectedTextColor" format="color" />
+        <attr name="pstsTabTextSize" format="dimension" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
+
+</resources>

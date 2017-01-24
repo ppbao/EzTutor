@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextViewBase">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">@dimen/text_sub_content</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextViewEllipsize" parent="TextViewBase">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginRight">@dimen/padding</item>
+
+    </style>
+</resources>

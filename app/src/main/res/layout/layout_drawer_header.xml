@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<au.com.unisharing.eztutor.widget.DrawerHeaderLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="2dp">
+    <LinearLayout
+        android:id="@+id/v_login_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin"
+        android:padding="@dimen/margin">
+        <au.com.unisharing.eztutor.widget.UserPhotoView style="@style/UserPhotoView.Drawer"/>
+        <TextView style="@style/TextViewBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding"
+            android:gravity="center"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/loginmsg"
+            android:textColor="@color/black_50"
+            android:textSize="@dimen/text_default"/>
+
+    </LinearLayout>
+
+ <RelativeLayout android:id="@+id/v_user_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <au.com.unisharing.eztutor.widget.UserPhotoView
+        android:id ="@+id/user_photo_view" style ="@style/UserPhotoView.Drawer"
+        android:layout_marginTop ="@dimen/margin"
+        android:layout_centerHorizontal ="true"/>
+
+    <ImageView android:id="@+id/iv_notification"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_action_news"/>
+
+    <ImageView android:id="@+id/iv_edit_profile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src ="@drawable/ic_action_news"/>
+
+    <TextView android:id="@+id/iv_show_resumables"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_toRightOf="@+id/iv_notification"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/ic_error_primary"
+        android:visibility="gone"
+        style="@style/ImageViewBase"/>
+
+    <TextView android:id="@+id/tv_nickname"
+        style="@style/TextViewEllipsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_photo_view"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <TextView android:id="@+id/tv_username"
+        style="@style/TextViewEllipsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_nickname"/>
+   </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="@dimen/margin_global"
+        android:paddingRight="@dimen/margin_global"
+        android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/v_record_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/list_selector"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="@dimen/padding"
+                android:src="@drawable/ic_camcorder_upload_drawer"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="upload video"
+                android:textColor="@color/black_80"
+                style="@style/ImageViewBase"/>
+            <LinearLayout android:id="@+id/v_record_audio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/list_selector"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/padding">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="@dimen/padding"
+                    android:src="@drawable/ic_mic_upload_drawer"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="upload video"
+                    android:textColor="@color/black_80"
+                    style="@style/ImageViewBase"/>
+
+
+                <LinearLayout android:id="@+id/v_record_local"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/list_selector"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="@dimen/padding"
+                        android:src="@drawable/ic_local_upload_drawer"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="upload video"
+                        android:textColor="@color/black_80"
+                        style="@style/ImageViewBase"/>
+
+              </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</au.com.unisharing.eztutor.widget.DrawerHeaderLayout>

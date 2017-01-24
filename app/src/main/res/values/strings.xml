@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EzTutor</string>
+    <string name="loginmsg">Click to login</string>
 </resources>

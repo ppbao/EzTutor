@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="app_bg">#f6f6f6</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black_80">#cc000000</color>
+    <color name="black_50">#7f000000</color>
+    <color name="grey_light_trans">#E0323232</color>
 </resources>
