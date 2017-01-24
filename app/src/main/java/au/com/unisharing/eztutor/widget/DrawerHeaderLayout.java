@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.mikepenz.materialdrawer.Drawer;
 
+import au.com.unisharing.eztutor.R;
 import au.com.unisharing.eztutor.model.User;
 import au.com.unisharing.eztutor.utils.ViewUtils;
 
@@ -33,15 +34,22 @@ public class DrawerHeaderLayout extends LinearLayout {
     private View vUploadLocal;
     private View vLoginWrapper;
     private View vUserWrapper;
+
+
     private Drawer drawer;
     private User user;
 
     public DrawerHeaderLayout(Context context) {
-       this(context, null);
+        this(context, null);
     }
 
     public DrawerHeaderLayout(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
+    }
+
+    public DrawerHeaderLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+
     }
 
     public User getUser() {
@@ -53,9 +61,13 @@ public class DrawerHeaderLayout extends LinearLayout {
         updateViews();
     }
 
+    public void setDrawer(Drawer drawer) {
+        this.drawer = drawer;
+    }
+
     private void updateViews() {
 
-        if (user != null){
+        if (user != null) {
             ViewUtils.visible(vUserWrapper);
             ViewUtils.gone(vLoginWrapper);
             userPhotoView.setUser(user);
@@ -64,7 +76,7 @@ public class DrawerHeaderLayout extends LinearLayout {
 
             updateResumableView();
 
-        }else {
+        } else {
             ViewUtils.visible(vLoginWrapper);
             ViewUtils.gone(vUserWrapper);
         }
@@ -75,10 +87,10 @@ public class DrawerHeaderLayout extends LinearLayout {
 
     }
 
-    public DrawerHeaderLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-
-
-
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        userPhotoView = (UserPhotoView) findViewById(R.id.user_photo_view);
+        tvNickname = (TextView) findViewById(R.id.tv_nickname);
     }
 }
