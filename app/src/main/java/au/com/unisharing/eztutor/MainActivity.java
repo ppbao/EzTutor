@@ -14,6 +14,7 @@ import java.util.Map;
 import au.com.unisharing.eztutor.activity.BaseActivity;
 import au.com.unisharing.eztutor.widget.DrawerHeaderLayout;
 import au.com.unisharing.eztutor.widget.MyDrawerBuilder;
+import au.com.unisharing.eztutor.widget.MyDrawerItemBuilder;
 
 public class MainActivity extends BaseActivity implements Drawer.OnDrawerItemClickListener {
 
@@ -24,6 +25,17 @@ public class MainActivity extends BaseActivity implements Drawer.OnDrawerItemCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupDrawerLayout();
+        updateDrawerLayout(true);
+
+    }
+
+    private void updateDrawerLayout(boolean force) {
+        if (drawerHeaderLayout == null){
+            return;
+        }
+        drawerHeaderLayout.setUser(null);
+        MyDrawerItemBuilder builder = new MyDrawerItemBuilder();
+        builder.addOnLoginDrawerItems(drawer);
 
     }
 

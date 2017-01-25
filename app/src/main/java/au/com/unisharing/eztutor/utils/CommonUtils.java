@@ -4,8 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.apache.commons.io.FileUtils;
 
@@ -159,5 +163,36 @@ public class CommonUtils {
 
     public static boolean isFragmentAlive(Fragment fragment) {
         return fragment!= null && fragment.isAdded() && fragment.getActivity() != null;
+    }
+
+    public static String getString(Bundle bundle, String key){
+        return getString(bundle, key, EMPTY);
+    }
+    public static String getString(Bundle bundle, String key, String defaultValue){
+        if (bundle != null){
+            if (ApiHelper.HAS_BUNDLE_GET_STRING_DEFAULT_VALUES){
+                return bundle.getString(key,defaultValue);
+            }else {
+                final String value = bundle.getString(key);
+                return (value == null )?defaultValue :value;
+            }
+        }
+        return defaultValue;
+    }
+    public static void cleanUpViewsRecursive(View view){
+        if (view == null){
+            return;
+        }
+        view.setBackgroundResource(0);
+        if (view instanceof ImageView){
+            ((ImageView) view).setImageDrawable(null);
+        }
+        if (view instanceof ViewGroup){
+            ViewGroup viewGroup = (ViewGroup)view;
+            for (int i =0, l = viewGroup.getChildCount(); i< l; i++){
+                View child = viewGroup.getChildAt(i);
+                cleanUpViewsRecursive(child);
+            }
+        }
     }
 }
