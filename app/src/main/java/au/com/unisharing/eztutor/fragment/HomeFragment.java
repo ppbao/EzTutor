@@ -21,8 +21,8 @@ import au.com.unisharing.eztutor.widget.ObservableScrollView;
 import au.com.unisharing.eztutor.widget.OnScrollObservedListener;
 
 /**
- * Class Name   :
- * Author       :
+ * Class Name   : HomeFragment
+ * Author       : Bruce.liu
  * Created Date :
  * Description  :
  */
